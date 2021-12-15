@@ -41,13 +41,15 @@ RSpec.feature "Customers", type: :feature do
   end
 
   scenario 'Mostra um cliente' do
-    customer = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['S', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.png"
-    )
+    # customer = Customer.create!(
+    #   name: Faker::Name.name,
+    #   email: Faker::Internet.email,
+    #   phone: Faker::PhoneNumber.phone_number,
+    #   smoker: ['S', 'N'].sample,
+    #   avatar: "#{Rails.root}/spec/fixtures/avatar.png"
+    # )
+
+    customer = create(:customer)
 
     visit(customer_path(customer.id))
     expect(page).to have_content(customer.name)
@@ -77,13 +79,15 @@ RSpec.feature "Customers", type: :feature do
   end
 
   scenario 'Atualiza um Cliente' do
-    customer = Customer.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      smoker: ['S', 'N'].sample,
-      avatar: "#{Rails.root}/spec/fixtures/avatar.png"
-    ) 
+    # customer = Customer.create!(
+    #   name: Faker::Name.name,
+    #   email: Faker::Internet.email,
+    #   phone: Faker::PhoneNumber.phone_number,
+    #   smoker: ['S', 'N'].sample,
+    #   avatar: "#{Rails.root}/spec/fixtures/avatar.png"
+    # ) 
+
+    customer = create(:customer)
 
     new_name = Faker::Name.name
     visit(edit_customer_path(customer.id))

@@ -35,6 +35,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 5.0', require: false
   gem 'geckodriver-helper'
+  gem 'factory_bot_rails'
 end
 
 group :development do
